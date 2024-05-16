@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!-- page title -->
+		<title>My Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- include jQuery library -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+			integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+			defer
+		></script>
+		<!-- include jQuery library local file if cdn link doesn't work -->
+		<script>
+			window.jQuery || document.write('<script src="js/jquery-3.6.0.min.js" defer><\/script>');
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<a class="accessibility" href="#main">Skip to Content</a>
+		<noscript>
+			<div>Javascript must be enabled for the correct page display</div>
+		</noscript>
+		<div class="wrapper">
+			<main class="main" id="main">
+				<section class="login flex align-items-center justify-content-center">
+					<div class="container">
+						<div class="content-holder tb-flex">
+							<div class="columns flex flex-column justify-content-center left-block text-center">
+								<a href="#" class="logo"><img src="images/logo-dummy.png" alt="image description" /></a>
+								<h2 class="title">Sign Into Your Account</h2>
+								<form class="login-form" action="#">
+									<div class="input-field">
+										<input type="email" placeholder="Email Address" />
+										<i class="icon-email"></i>
+									</div>
+									<div class="input-field">
+										<input type="password" placeholder="Password" />
+										<i class="icon-lock"></i>
+									</div>
+									<div class="checkbox-block flex justify-content-between align-items-center">
+										<div class="checkbox-wrap">
+											<input type="checkbox" id="checkbox" />
+											<label for="checkbox">Remember me</label>
+										</div>
+										<a href="#" class="forget-password" id="show-forget-password-form">Forgot Password</a>
+									</div>
+									<input type="submit" value="Login" />
+									<div class="register-block">
+										<p>Don't have an account? <a href="#" id="show-register-form">Register here</a></p>
+									</div>
+								</form>
+
+								<form class="login-form register-form" action="#">
+									<div class="input-field">
+										<input type="text" placeholder="Full Name" />
+										<i class="icon-account-outline"></i>
+									</div>
+									<div class="input-field">
+										<input type="email" placeholder="Email Address" />
+										<i class="icon-email"></i>
+									</div>
+									<div class="input-field">
+										<input type="password" placeholder="Password" />
+										<i class="icon-lock"></i>
+									</div>
+									<div class="checkbox-block flex justify-content-between align-items-center">
+										<div class="checkbox-wrap">
+											<input type="checkbox" id="checkbox01" />
+											<label for="checkbox01">I agree to the terms of service</label>
+										</div>
+									</div>
+									<input type="submit" value="Register" />
+									<div class="register-block">
+										<p>Already have an account? <a href="#" id="show-login-form-from-register">Login here</a></p>
+									</div>
+								</form>
+
+								<form class="login-form forget-password-form" action="#">
+									<div class="input-field">
+										<input type="email" placeholder="Email Address" />
+										<i class="icon-email"></i>
+									</div>
+									<input type="submit" value="Send Me Mail" />
+									<div class="register-block">
+										<p>Already a member <a href="#" id="show-login-form-from-forget">Login here</a></p>
+									</div>
+								</form>
+							</div>
+							<div class="columns flex flex-column justify-content-center right-block text-center">
+								<h1 class="text-uppercase"><span>Welcome</span> To Web Wizard</h1>
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+									the 1500s, when an unknown printer took a galley of
+								</p>
+								<ul class="social-links list-unstyled flex justify-content-center">
+									<li>
+										<a href="#"><i class="icon-facebook"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon-instagram"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon-linkedin"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="icon-email"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const showRegisterFormLink = document.getElementById('show-register-form');
+				const showLoginFormLinkFromRegister = document.getElementById('show-login-form-from-register');
+				const showForgetPasswordFormLink = document.getElementById('show-forget-password-form');
+				const showLoginFormLinkFromForget = document.getElementById('show-login-form-from-forget');
+
+				const registerForm = document.querySelector('.register-form');
+				const loginForm = document.querySelector('.login-form');
+				const forgetPasswordForm = document.querySelector('.forget-password-form');
+				const title = document.querySelector('.title');
+
+				showRegisterFormLink.addEventListener('click', function (event) {
+					event.preventDefault();
+					registerForm.style.display = 'block';
+					loginForm.style.display = 'none';
+					forgetPasswordForm.style.display = 'none';
+					title.innerHTML = 'Register Into Your Account';
+				});
+
+				showLoginFormLinkFromRegister.addEventListener('click', function (event) {
+					event.preventDefault();
+					loginForm.style.display = 'block';
+					registerForm.style.display = 'none';
+					forgetPasswordForm.style.display = 'none';
+				});
+
+				showForgetPasswordFormLink.addEventListener('click', function (event) {
+					event.preventDefault();
+					forgetPasswordForm.style.display = 'block';
+					loginForm.style.display = 'none';
+					registerForm.style.display = 'none';
+					title.innerHTML = 'Recover Your Password';
+				});
+
+				showLoginFormLinkFromForget.addEventListener('click', function (event) {
+					event.preventDefault();
+					loginForm.style.display = 'block';
+					forgetPasswordForm.style.display = 'none';
+					registerForm.style.display = 'none';
+				});
+			});
+		</script>
+		<script defer src="js/app.js"></script>
+	</body>
+</html>
